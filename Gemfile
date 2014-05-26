@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 gem 'bootstrap-sass'
 gem 'sprockets'
+gem 'bcrypt-ruby'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
