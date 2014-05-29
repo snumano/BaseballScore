@@ -5,6 +5,9 @@ gem 'rails', '4.0.4'
 gem 'bootstrap-sass', '2.3.2.1'
 gem 'sprockets'
 gem 'bcrypt-ruby'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
