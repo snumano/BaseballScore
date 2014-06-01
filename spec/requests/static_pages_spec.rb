@@ -15,6 +15,23 @@ describe "Static pages" do
 
     it_should_behave_like "all static pages"
     it{should_not have_title('| Home')}
+
+    describe "for signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        FactoryGirl.create(:score, user: user, start_date: "2014-08-01", team_top: "teamA1", team_bottom: "teamB1")
+        FactoryGirl.create(:score, user: user, start_date: "2014-08-02", team_top: "teamA2", team_bottom: "teamB2")
+        sign_in user
+        visit root_path
+      end
+
+      it "should render the user's feed" do
+        p user.scores
+        user.scores.each do |score|
+          expect(page).to have_selector("li .id", text: score.id)
+        end
+      end
+    end
   end
 
   describe "Help page" do

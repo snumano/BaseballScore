@@ -17,6 +17,8 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:scores) }
+  it { should respond_to(:feed) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -125,4 +127,37 @@ describe User do
     its(:remember_token) { should_not be_blank }
   end
 
+  describe "score associations" do
+
+    before { @user.save }
+    let!(:older_score) do
+      FactoryGirl.create(:score, start_date: '2014-08-01', user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_score) do
+      FactoryGirl.create(:score, start_date: '2014-07-01', user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right scores in the right order" do
+      expect(@user.scores.to_a).to eq [newer_score, older_score]
+    end
+
+    it "should destroy associated scores" do
+      scores = @user.scores.to_a
+      @user.destroy
+      expect(scores).not_to be_empty
+      scores.each do |score|
+        expect(Score.where(id: score.id)).to be_empty
+      end
+    end
+
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:score, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(newer_score) }
+      its(:feed) { should include(older_score) }
+      its(:feed) { should_not include(unfollowed_post) }
+    end
+  end
 end

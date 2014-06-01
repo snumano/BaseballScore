@@ -1,0 +1,63 @@
+<li>
+  <span class="id"><%= score.id %></span>
+  <span class="start_date"><%= score.start_date %></span>
+  <span class="start_time"><%= score.start_time %></span>
+
+<table border="1" class="score">
+  <thead>
+    <tr>
+      <th width="100">Team</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td class="team_top"><%= score.team_top %></td>
+      <td class="t1"><%= score.t1 %></td>
+      <td class="t2"><%= score.t2 %></td>
+      <td class="t3"><%= score.t3 %></td>
+      <td class="t4"><%= score.t4 %></td>
+      <td class="t5"><%= score.t5 %></td>
+      <td class="t6"><%= score.t6 %></td>
+      <td class="t7"><%= score.t7 %></td>
+      <td class="t8"><%= score.t8 %></td>
+      <td class="t9"><%= score.t9 %></td>
+      <td class="t_total"><%= score.t1.to_i + score.t2.to_i + score.t3.to_i + score.t4.to_i + score.t5.to_i + score.t6.to_i + score.t7.to_i + score.t8.to_i + score.t9.to_i %></td>
+    </tr>
+    <tr>
+      <td class="team_bottom"><%= score.team_bottom %></td>
+      <td class="b1"><%= score.b1 %></td>
+      <td class="b2"><%= score.b2 %></td>
+      <td class="b3"><%= score.b3 %></td>
+      <td class="b4"><%= score.b4 %></td>
+      <td class="b5"><%= score.b5 %></td>
+      <td class="b6"><%= score.b6 %></td>
+      <td class="b7"><%= score.b7 %></td>
+      <td class="b8"><%= score.b8 %></td>
+      <td class="b9"><%= score.b9 %></td>
+      <td class="b_total"><%= score.b1.to_i + score.b2.to_i + score.b3.to_i + score.b4.to_i + score.b5.to_i + score.b6.to_i + score.b7.to_i + score.b8.to_i + score.b9.to_i %></td>
+    </tr>
+  </tbody>
+</table>
+
+  <span class="end"><%= score.end %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(score.created_at) %> ago.
+  </span>
+  <% if current_user?(score.user) %>
+    <%= link_to "delete", score, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     id: score.id %>
+  <% end %>
+
+</li>

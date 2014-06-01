@@ -11,10 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528130435) do
+ActiveRecord::Schema.define(version: 20140529234240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "scores", force: true do |t|
+    t.date     "start_date"
+    t.time     "start_time"
+    t.string   "team_top"
+    t.string   "team_bottom"
+    t.integer  "t1"
+    t.integer  "b1"
+    t.integer  "t2"
+    t.integer  "b2"
+    t.integer  "t3"
+    t.integer  "b3"
+    t.integer  "t4"
+    t.integer  "b4"
+    t.integer  "t5"
+    t.integer  "b5"
+    t.integer  "t6"
+    t.integer  "b6"
+    t.integer  "t7"
+    t.integer  "b7"
+    t.integer  "t8"
+    t.integer  "b8"
+    t.integer  "t9"
+    t.integer  "b9"
+    t.boolean  "end"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scores", ["user_id", "created_at"], name: "index_scores_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

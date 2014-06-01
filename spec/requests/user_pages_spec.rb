@@ -53,10 +53,19 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:s1) { FactoryGirl.create(:score, start_date: '2014-07-01', user: user, team_top: "teamA", team_bottom: "teamB") }
+    let!(:s2) { FactoryGirl.create(:score, start_date: '2014-08-01', user: user, team_top: "teamA2", team_bottom: "teamB2") }
+
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    describe "scores" do
+      it { should have_content(s1.team_top) }
+      it { should have_content(s2.team_top) }
+      it { should have_content(user.scores.count) }
+    end
   end
 
   describe "signup page" do
