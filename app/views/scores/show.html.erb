@@ -1,0 +1,11 @@
+<% provide(:title, "Score Detail") %>
+<div class="row">
+  <aside class="span4 offset1">
+    <section>
+      <h1>Score Detail: <%= @score.id %></h1>
+      <ul class="scores">
+        <%= render @score %>
+      </ul>
+    </section>
+  </aside>
+</div>

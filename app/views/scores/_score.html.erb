@@ -58,6 +58,7 @@
     <%= link_to "delete", score, method: :delete,
                                      data: { confirm: "You sure?" },
                                      id: score.id %>
+    <%= link_to "edit", edit_score_path(score) %>
   <% end %>
 
 </li>

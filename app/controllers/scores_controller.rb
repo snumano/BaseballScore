@@ -1,6 +1,6 @@
 class ScoresController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def new
     @score = current_user.scores.build if signed_in?
@@ -13,6 +13,22 @@ class ScoresController < ApplicationController
       redirect_to root_url
     else
       render 'new'
+    end
+  end
+
+  def show
+    @score = Score.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @score.update_attributes(score_params)
+      flash[:success] = "Score updated"
+      redirect_to @score
+    else
+      render 'edit'
     end
   end
 
