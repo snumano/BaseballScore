@@ -1,0 +1,86 @@
+<% provide(:title, "Edit Score") %>
+  <h1>Edit Score: <%= @score.id %></h1>
+  <div class="row">
+    <div class="span10 offset1">
+      <%= form_for(@score) do |f| %>
+        <% if @score.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@score.errors.count, "error") %> prohibited this content from being saved:</h2>
+
+            <ul>
+              <% @score.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <div class="field">
+        <%= f.label :start_date %><br>
+        <%= f.date_select :start_date %>
+      </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.time_select :start_time %>
+  </div>
+
+
+<table border="1" class="score">
+  <thead>
+    <tr>
+      <th width="100">Team</th>
+      <th width=80>1</th>
+      <th width=80>2</th>
+      <th width=80>3</th>
+      <th width=80>4</th>
+      <th width=80>5</th>
+      <th width=80>6</th>
+      <th width=80>7</th>
+      <th width=80>8</th>
+      <th width=80>9</th>
+      <th width=80>Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td class="team_top"><%= f.text_field :team_top %></td>
+      <td class="t1"><%= f.number_field :t1 %></td>
+      <td class="t2"><%= f.number_field :t2 %></td>
+      <td class="t3"><%= f.number_field :t3 %></td>
+      <td class="t4"><%= f.number_field :t4 %></td>
+      <td class="t5"><%= f.number_field :t5 %></td>
+      <td class="t6"><%= f.number_field :t6 %></td>
+      <td class="t7"><%= f.number_field :t7 %></td>
+      <td class="t8"><%= f.number_field :t8 %></td>
+      <td class="t9"><%= f.number_field :t9 %></td>
+      <td class="t_total"></td>
+    </tr>
+    <tr>
+      <td class="team_bottom"><%= f.text_field :team_bottom %></td>
+      <td class="b1"><%= f.number_field :b1 %></td>
+      <td class="b2"><%= f.number_field :b2 %></td>
+      <td class="b3"><%= f.number_field :b3 %></td>
+      <td class="b4"><%= f.number_field :b4 %></td>
+      <td class="b5"><%= f.number_field :b5 %></td>
+      <td class="b6"><%= f.number_field :b6 %></td>
+      <td class="b7"><%= f.number_field :b7 %></td>
+      <td class="b8"><%= f.number_field :b8 %></td>
+      <td class="b9"><%= f.number_field :b9 %></td>
+      <td class="b_total"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <div class="field">
+    <%= f.label :end %><br>
+    <%= f.check_box :end %>
+  </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>
