@@ -237,6 +237,24 @@ input {
     }
   }
 }
+.score {
+  list-style: none;
+  margin: 10px 0 0 0;
+   tbody,thead{
+    background-color: #006400;
+    color: #fff;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    tr td input{
+      background-color: #006400;
+      color: #fff;
+      font-family: verdana, arial, helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+}
 .timestamp {
   color: $grayLight;
 }
