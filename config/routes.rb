@@ -1,8 +1,7 @@
 Baseball::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-#  resources :scores, only: [:new, :create, :destroy, :edit]
-  resources :scores
+  resources :scores, only: [:new, :create, :destroy]
 
   get "users/new"
   root  'static_pages#home'
