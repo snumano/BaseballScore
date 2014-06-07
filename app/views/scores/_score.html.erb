@@ -55,8 +55,10 @@
     Posted <%= time_ago_in_words(score.created_at) %> ago.
   </span>
   <% if current_user?(score.user) %>
+
     <%= link_to "delete", score, method: :delete,data: { confirm: "You sure?" },id: score.id %>
     <%= link_to "edit", edit_score_path(score) %>
+
   <% end %>
 
 </li>
