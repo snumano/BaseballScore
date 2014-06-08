@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,   only: :destroy
+#  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: :index
+#  before_action :correct_user,   only: [:edit, :update]
+#  before_action :admin_user,   only: :destroy
 
   def index
     @users = User.paginate(page: params[:page])
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
     @scores = @user.scores.paginate(page: params[:page], per_page:10)
   end
 
+=begin
   def new
     @user = User.new
   end
@@ -44,6 +46,7 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
+=end
 
   private
 

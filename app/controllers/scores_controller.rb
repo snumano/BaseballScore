@@ -1,5 +1,6 @@
 class ScoresController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create, :destroy, :edit]
+#  before_action :signed_in_user, only: [:new, :create, :destroy, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit]
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def new
