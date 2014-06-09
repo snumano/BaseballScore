@@ -6,7 +6,17 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <span>
+        <%= pluralize(current_user.scores.count, "score") %>
+      </span>
     </section>
+
+    <% if current_user?(@user) %>
+      <section>
+        <%= link_to 'New Score', new_score_path %>
+      </section>
+    <% end %>
+
   </aside>
   <div class="span8">
     <% if @user.scores.any? %>
