@@ -1,6 +1,12 @@
 /*@import "bootstrap";*/
 @import "bootstrap/bootstrap";
 
+
+/* for temporaly fix http://stackoverflow.com/questions/17579750/drop-down-menu-not-working-on-mobile-devices */
+.dropdown-backdrop{
+    position: static;
+}
+
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
