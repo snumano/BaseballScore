@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20140607133320) do
   enable_extension "plpgsql"
 
   create_table "scores", force: true do |t|
-    t.date     "start_date"
-    t.time     "start_time"
+    t.datetime "start_date"
     t.string   "team_top"
     t.string   "team_bottom"
     t.integer  "t1"

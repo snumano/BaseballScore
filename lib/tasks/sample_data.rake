@@ -1,6 +1,6 @@
 require "date"
 
-today = Date.today
+now = DateTime.now
 
 namespace :db do
   desc "Fill database with sample data"
@@ -22,7 +22,7 @@ namespace :db do
 
     users = User.all(limit: 6)
     50.times do
-      start_date = today + Faker::Number.number(3).to_i
+      start_date = now + Faker::Number.number(3).to_i
       team_top = Faker::Name.last_name[0,10]
       team_bottom = Faker::Name.last_name[0,10]
       t1 = Faker::Number.digit

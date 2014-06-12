@@ -1,8 +1,7 @@
 class CreateScores < ActiveRecord::Migration
   def change
     create_table :scores do |t|
-      t.date :start_date
-      t.time :start_time
+      t.datetime :start_date
       t.string :team_top
       t.string :team_bottom
       t.integer :t1

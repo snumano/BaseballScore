@@ -41,7 +41,7 @@ class ScoresController < ApplicationController
   private
 
     def score_params
-      params.require(:score).permit(:start_date, :start_time, :team_top, :team_bottom, :t1, :b1, :t2, :b2, :t3, :b3, :t4, :b4, :t5, :b5, :t6, :b6, :t7, :b7, :t8, :b8, :t9, :b9, :end)
+      params.require(:score).permit(:start_date, :team_top, :team_bottom, :t1, :b1, :t2, :b2, :t3, :b3, :t4, :b4, :t5, :b5, :t6, :b6, :t7, :b7, :t8, :b8, :t9, :b9, :end)
     end
 
     def correct_user
