@@ -1,20 +1,19 @@
-<li>
-  <span class="start_date"><%= score.start_date.strftime("%Y-%m-%d %H:%M") %></span>
+<span class="start_date"><%= score.start_date.strftime("%Y-%m-%d %H:%M") %></span>
 
-<table border="1" class="score">
+<table class="score table table-bordered">
   <thead>
     <tr>
-      <th width="100">Team</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-      <th>9</th>
-      <th>Total</th>
+      <th class="col-sm-2">Team</th>
+      <th class="col-sm-1">1</th>
+      <th class="col-sm-1">2</th>
+      <th class="col-sm-1">3</th>
+      <th class="col-sm-1">4</th>
+      <th class="col-sm-1">5</th>
+      <th class="col-sm-1">6</th>
+      <th class="col-sm-1">7</th>
+      <th class="col-sm-1">8</th>
+      <th class="col-sm-1">9</th>
+      <th class="col-sm-1">Total</th>
     </tr>
   </thead>
 
@@ -66,4 +65,3 @@
   <% else %>
     <%= link_to "show", score_path(score) %> 
   <% end %>
-</li>

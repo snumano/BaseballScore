@@ -22,7 +22,9 @@
     <% if @user.scores.any? %>
       <h3>Scores (<%= @user.scores.count %>)</h3>
       <ul class="scores">
-        <%= render @scores %>
+        <li>
+          <%= render @scores %>
+        </li>
       </ul>
       <%= will_paginate @scores %>
     <% end %>
