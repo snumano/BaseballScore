@@ -1,22 +1,17 @@
 <% if signed_in? %>
-  <div class="row-fluid">
-    <aside class="span4">
+  <div class="container-fluid">
       <section>
         <%= render 'shared/user_info' %>
       </section>
       <section>
         <%= link_to 'New Score', new_score_path %>
       </section>
-    </aside>
-    <div class="span8">
+
       <% if current_user.scores.any? %>
         <h3>Scores (<%= current_user.scores.count %>)</h3>
-        <ul class="scores">
-          <%= render partial: 'scores/score', collection: current_user.scores %>
-        </ul>
+        <%= render partial: 'scores/score', collection: current_user.scores %>
         <%= will_paginate @scores %>
       <% end %>
-    </div>
   </div>
 <% else %>
   <div class="center hero-unit">

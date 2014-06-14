@@ -1,4 +1,5 @@
-<span class="start_date"><%= score.start_date.strftime("%Y-%m-%d %H:%M") %></span>
+<section>
+<span class="start_date" style="float:left"><%= score.start_date.strftime("%Y-%m-%d %H:%M") %></span>
 
 <table class="score table table-bordered">
   <thead>
@@ -49,7 +50,7 @@
   </tbody>
 </table>
 
-  <span class="end"><%= score.end %></span>
+  <span class="end">試合終了:<%= score.end %></span></br>
   <span class="timestamp">
     Posted <%= time_ago_in_words(score.created_at) %> ago.
   </span>
@@ -67,3 +68,4 @@
   <% else %>
     <%= link_to "show", score_path(score) %> 
   <% end %>
+</section>
