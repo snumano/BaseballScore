@@ -5,9 +5,6 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <span>
-        <%= pluralize(current_user.scores.count, "score") %>
-      </span>
     </section>
 
     <% if current_user?(@user) %>

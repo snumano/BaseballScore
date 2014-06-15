@@ -1,24 +1,29 @@
 <% if signed_in? %>
   <div class="container-fluid">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= link_to 'New Score', new_score_path %>
-      </section>
-
-      <% if current_user.scores.any? %>
-        <h3>Scores (<%= current_user.scores.count %>)</h3>
-        <%= render partial: 'scores/score', collection: current_user.scores %>
-        <%= will_paginate @scores %>
-      <% end %>
-  </div>
-<% else %>
-  <div class="center hero-unit">
-    <h1>Let's share your Score!</h1>
-    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
-  </div>
-  <div class="center" id="fig-score">
-    <%= link_to image_tag("baseball_score.png", alt: "Score"), 'http://score.workaround.jp/' %>
+    <div class="row-fluid">
+      <div class="col-sm-4">
+        <section>
+          <%= render 'shared/user_info' %>
+        </section>
+        <section>
+          <%= link_to 'New Score', new_score_path %>
+        </section>
+      </div>
+      <div class="col-sm-8">
+        <% if current_user.scores.any? %>
+          <h3>Scores (<%= current_user.scores.count %>)</h3>
+          <%= render partial: 'scores/score', collection: current_user.scores %>
+          <%= will_paginate @scores %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="center hero-unit">
+      <h1>Let's share your Score!</h1>
+      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+    </div>
+    <div class="center" id="fig-score">
+      <%= link_to image_tag("baseball_score.png", alt: "Score"), 'http://score.workaround.jp/' %>
+    </div>
   </div>
 <% end %>
