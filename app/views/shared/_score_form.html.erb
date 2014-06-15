@@ -1,22 +1,29 @@
 <%= form_for(@score) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.time_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :team_top %><br>
-    <%= f.text_field :team_top %>
-  </div>
-  <div class="field">
-    <%= f.label :team_bottom %><br>
-    <%= f.text_field :team_bottom %>
+  <div class="container-fluid">
+    <div class="field">
+      <%= f.label :start_date %><br>
+      <%= f.datetime_select :start_date %>
+    </div>
   </div>
 
-  <%= f.submit "Create Score", class: "btn btn-large btn-primary" %>
+  <div class="container-fluid">
+    <div class="field">
+      <%= f.label :team_top %><br>
+      <%= f.text_field :team_top %>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="field">
+      <%= f.label :team_bottom %><br>
+      <%= f.text_field :team_bottom %>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <%= f.submit "Create Score", class: "btn btn-large btn-primary", style: "margin-top:15px;" %>
+  </div>
 <% end %>
+
