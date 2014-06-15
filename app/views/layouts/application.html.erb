@@ -7,7 +7,7 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-    <% if defined?(@score) && current_page?(score_path(@score)) && !@score.end && Time.now - @score.start_date > 0 %>
+    <% if defined?(@score) && @score.id  && current_page?(score_path(@score)) && !@score.end && Time.now - @score.start_date > 0 %>
       <meta http-equiv="refresh" content="60">
     <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
