@@ -50,9 +50,17 @@
   </tbody>
 </table>
 
-  <span class="end">試合終了:<%= score.end %></span></br>
+  <span class="end">
+    <% if score.end %>
+      試合終了
+    <% elsif score.start_date - Time.now > 0 %>
+      試合開始予定
+    <% else %>
+      試合中
+    <% end %>
+  </span></br>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(score.created_at) %> ago.
+    Updated <%= time_ago_in_words(score.updated_at) %> ago.
   </span>
   <% if current_user?(score.user) %>
     <%= link_to "delete", score, method: :delete,data: { confirm: "You sure?" },id: score.id %>
