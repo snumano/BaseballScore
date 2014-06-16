@@ -15,7 +15,7 @@
         <th>7</th>
         <th>8</th>
         <th>9</th>
-        <th>計</th>
+        <th><%= t('score.total') %></th>
       </div>
     </tr>
   </thead>
@@ -52,11 +52,11 @@
 
   <span class="end">
     <% if score.end %>
-      試合終了
+      <%= t('score.end') %>
     <% elsif score.start_date - Time.now > 0 %>
-      試合開始予定
+      <%= t('score.plan') %>
     <% else %>
-      試合中
+     <%= t('score.start') %>
     <% end %>
   </span></br>
   <span class="timestamp">

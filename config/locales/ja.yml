@@ -19,10 +19,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+ja:
+  hello: "こんにちは　世界"
   score:
-    total: "Total"
-    plan:  "not yet"
-    start: "during the game"
-    end:   "end"
+    total: "計"
+    plan:  "試合予定"
+    start: "試合中"
+    end:   "試合終了"
